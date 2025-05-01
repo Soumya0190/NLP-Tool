@@ -1,0 +1,9 @@
+
+sentences = [['Hi', 'everyone'], ['This', 'is', 'dr'], ['Millward'], ['And', "I'm", 'coming', 'to', 'you', 'from', 'the', 'voice', 'memo', 'platform'], ['Why', 'do', 'we', 'need', 'video', 'when', 'we', 'can', 'just', 'go', 'back', 'to', 'the', 'old', 'school', 'way', 'of', 'listening', 'to', 'things', 'on', 'radios', 'or', 'podcast', 'that', 'brings', 'up', 'the', 'fact', 'that', 'on', 'this', 'week', 'week', 'four', 'railroads', 'of', 'the', 'pop', 'and', 'a', 'politics', 'of', 'exclusion'], ['You', 'will', 'actually', 'be', 'to', 'have', 'a', 'podcast', 'to', 'listen', 'to', 'lecture', 'number', '3', 'celebrates', 'the', '100', 'year', 'anniversary', 'of', 'the', 'Transcontinental', 'Railroad', 'and', 'it', 'is', 'a', 'podcast', 'to', 'help', 'you', 'get', 'used', 'to', 'the', 'used', 'to', 'doing', 'the', 'old', 'school', 'way', 'of', 'listening', 'and', 'writing', 'things', "down.Doesn't", 'become', 'important', 'because', 'we', 'listen', 'to', 'several', 'other', 'podcast', 'throughout', 'the', 'rest', 'of', 'the', 'quarter'], ['Letter', 'number', 'for', 'Center', 'on', 'the', 'top', 'of', 'the', 'podcast', 'happens', 'to', 'be', 'a', 'guest', 'lecture', 'from', 'Miss', 'Casey', 'Callahan', 'a', 'graduate', 'student', 'here', 'in', 'the', 'UCI', 'Department', 'of', 'history', 'and', 'also', 'happens', 'to', 'be', 'the', 'co-host', 'of', 'my', 'podcast', 'historians', 'on', 'Housewives'], ['Miss', 'Callahan', 'has', 'a', 'series', 'of', 'questions', 'at', 'the', 'end', 'of', 'her', 'Powerpoint', 'related', 'to', 'a', 'Stacy', 'Smith', 'article.']]
+whole_text = ""
+for i in range(len(sentences)):
+    print(len(sentences[i]))
+    for j in range(len(sentences[i])):
+        whole_text = whole_text+" "+sentences[i][j]
+        print(sentences[i][j])
+print(whole_text)
