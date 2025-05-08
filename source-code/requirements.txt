@@ -6,3 +6,79 @@ nltk
 numpy
 networkx
 tk
+
+
+
+# pydub
+# -> from pydub import AudioSegment  
+# # Used to manipulate audio files (convert stereo to mono, change format, etc.)
+# * **Purpose:** Allows you to work with audio files — loading, slicing, converting formats.
+# * **Common Use:** Used here to ensure audio is mono before transcription.
+
+# ---
+
+# SpeechRecognition
+# -> import speech_recognition as sr  
+# Provides functionality for converting speech to text using multiple engines 
+# (not used directly here, but often used with mics or other engines)
+# * **Purpose:** Offers a unified interface for several speech-to-text APIs.
+# * **Common Use:** Though imported, this script uses Google Cloud’s own speech library instead — `speech` from `google.cloud`.
+
+# ---
+
+# google-cloud-storage
+# -> from google.cloud import storage  
+# Used to interact with Google Cloud Storage (GCS)
+# * **Purpose:** Uploads audio files to a Google Cloud Storage bucket so that the speech-to-text API can access them.
+# * **Common Use:** Uploads WAV files to a cloud bucket before transcription.
+
+# ---
+
+# google-cloud-speech
+# -> from google.cloud import speech  
+# Used to call Google Cloud's Speech-to-Text API for transcribing audio files
+# * **Purpose:** Provides transcription services using Google’s AI models.
+# * **Common Use:** Transcribes speech from uploaded audio into text with punctuation.
+
+# ---
+
+# nltk (Natural Language Toolkit)
+# -> import nltk  
+# Provides tools for tokenization, stopwords, sentence segmentation, etc.
+# -> from nltk.corpus import stopwords  
+# List of common stop words (e.g., "the", "is") used in text preprocessing
+# -> from nltk.cluster.util import cosine_distance  
+# Computes similarity between sentence vectors
+# -> from nltk.tokenize import sent_tokenize  
+# Breaks text into individual sentences
+# * **Purpose:** Used for text processing and summarization (e.g., stop word removal, sentence tokenization).
+# * **Common Use:** Key for building sentence similarity graphs and creating summaries.
+
+# ---
+
+# numpy
+# -> import numpy as np  
+# Fundamental library for numerical operations (used to build similarity matrix)
+# * **Purpose:** Helps manage arrays and perform mathematical operations.
+# * **Common Use:** Creates and manipulates the sentence similarity matrix.
+
+# ---
+
+# networkx
+# -> import networkx as nx  
+# Graph-based library used to compute PageRank over sentence similarity graph
+# * **Purpose:** Builds a graph from the sentence similarity matrix to identify important sentences.
+# * **Common Use:** Ranks sentences by centrality to generate a summary using PageRank algorithm.
+
+# ---
+
+# tkinter
+# -> import tkinter as tk  
+# GUI library built into Python
+# -> from tkinter import filedialog  
+# Opens a file selection dialog box
+# * **Purpose:** Used to build the graphical user interface for selecting audio files and displaying results.
+# * **Common Use:** Lets users upload a `.wav` file, trigger transcription, and view results in a window.
+
+
+

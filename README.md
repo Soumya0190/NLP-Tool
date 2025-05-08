@@ -1,7 +1,7 @@
 # NLP-Tool
 https://devpost.com/software/lecture-summary-generator
 
-YouTube Video Demo Link: https://youtu.be/LY9jxuDBuro
+🎬 YouTube Video Demo Link: https://youtu.be/LY9jxuDBuro
 
 # 🎙️ Audio Transcriber & Summarizer
 
@@ -160,6 +160,99 @@ Use the GUI to upload a `.wav` file. It will:
 
 ---
 
+---
+
+### ✅ **SITUATION**
+
+During a hackathon project, I aimed to build an end-to-end pipeline that would allow users to upload `.wav` audio files, automatically transcribe their content using Google Cloud Speech-to-Text, and generate a concise summary using natural language processing (NLP). The solution needed to be user-friendly, accurate, and capable of handling real-world audio inputs like meetings or interviews.
+
+---
+
+### ✅ **TASK**
+
+My goal was to:
+
+* Create a desktop application for non-technical users.
+* Ensure audio was correctly formatted (mono, 16-bit linear PCM WAV).
+* Transcribe long audio files using a cloud-based service.
+* Automatically summarize the transcription with important insights.
+* Make the output readable and visually accessible through a GUI.
+
+---
+
+### ✅ **ACTION**
+
+I designed and implemented the system with the following components and technologies:
+
+#### 🔹 **1. GUI (Frontend) with Tkinter:**
+
+* **Tool Used:** `tkinter` (Python's standard GUI library)
+* Created a desktop interface that allows users to select `.wav` files.
+* Displayed both the transcription and summary on-screen for easy reading.
+
+#### 🔹 **2. Audio Preprocessing:**
+
+* **Tool Used:** `pydub`, `wave`
+* **Concepts:**
+
+  * Converted **stereo audio to mono**, as required by Google’s API.
+  * Extracted **frame rate** and **channel count** using the `wave` module to set up the transcription config accurately.
+
+#### 🔹 **3. Cloud Integration for Speech Recognition:**
+
+* **Tool Used:** `google-cloud-storage`, `google-cloud-speech`
+* **Concepts:**
+
+  * Uploaded local audio files to **Google Cloud Storage (GCS)** for remote access.
+  * Used `long_running_recognize()` from **Google Cloud Speech-to-Text** to process audio asynchronously.
+  * Applied **automatic punctuation** and **language code setting** for better accuracy.
+
+#### 🔹 **4. Text Summarization Using NLP Techniques:**
+
+* **Libraries Used:** `nltk`, `numpy`, `networkx`
+* **Concepts:**
+
+  * Used **sentence tokenization** (`sent_tokenize`) to split text into sentences.
+  * Removed **stopwords** (common words with little meaning).
+  * Calculated **cosine similarity** between sentence vectors to measure content similarity.
+  * Built a **similarity matrix** and applied **PageRank** (`networkx.pagerank`) to rank the most important sentences.
+  * Summarized using **TextRank**, a graph-based ranking algorithm.
+
+#### 🔹 **5. Summary Extraction and Output:**
+
+* Extracted the **top 3 ranked sentences** as the summary.
+* Wrote both transcription and summary into a text file (`output.txt`) and displayed them in the GUI.
+
+---
+
+### ✅ **RESULT**
+
+* Successfully built a **fully working desktop app** that:
+
+  * Accepts `.wav` files from users.
+  * Uploads and transcribes audio in the cloud.
+  * Performs intelligent NLP-based summarization.
+  * Displays structured output in the same window.
+* **Challenges overcome:**
+
+  * Ensuring mono audio format compatibility.
+  * Efficient sentence vectorization and similarity calculations.
+  * Handling long-running Google Cloud jobs asynchronously with timeout management.
+  * Balancing readability and technical completeness in the summary output.
+
+---
+
+### ✅ **TECHNICAL CONCEPTS EXPLAINED**
+
+| Concept                        | Description                                                                                                         |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------- |
+| **Mono vs Stereo Audio**       | Google’s API requires mono audio (1 channel); stereo has 2 channels, so conversion is essential.                    |
+| **Google Cloud Storage (GCS)** | Cloud service to host and retrieve audio for processing remotely.                                                   |
+| **Speech-to-Text API**         | Converts spoken words in audio files into text, with support for features like punctuation and different languages. |
+| **TextRank Algorithm**         | A graph-based algorithm for summarization where sentences are ranked based on their similarity to other sentences.  |
+| **Cosine Similarity**          | Measures how similar two vectors (sentences, in this case) are by comparing the angle between them.                 |
+| **Stopwords Removal**          | Removes common filler words ("the", "is", "at") to improve similarity calculations.                                 |
+| **PageRank (via networkx)**    | Originally used for ranking web pages, applied here to find the most central sentences in a text graph.             |
 
 
 
